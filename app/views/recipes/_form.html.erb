@@ -11,36 +11,55 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="field form-group">
+        <%= f.label :title %>
+        <br/>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :description %>
+        <br/>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "choose"%>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="case">Ingredients</div>
+      <div id="ingredients">
+        <%= f.fields_for :ingredients do |ingredient| %>
+        <%= render 'ingredient_fields', f:ingredient %>
+        <% end %>
+      </div>
+      <div class="action">
+        <%= link_to_add_association 'Add ingredient', f, :ingredients, class: 'sm-submit', data:{association_insertion_node: '#ingredients', association_insertion_method: :append} %>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="case">Directions</div>
+      <div id="directions">
+        <%= f.fields_for :directions do |direction| %>
+        <%= render 'direction_fields', f:direction %>
+        <% end %>
+      </div>
+      <div class="action">
+        <%= link_to_add_association 'Add directions', f, :directions, class: 'sm-submit', data:{association_insertion_node: '#directions', association_insertion_method: :append} %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div id="ingredients">
-    <%= f.fields_for :ingredients do |ingredient| %>
-      <%= render 'ingredient_fields', f:ingredient %>
-    <% end %>
-  </div>
-
-  <div id="directions">
-    <%= f.fields_for :directions do |direction| %>
-      <%= render 'direction_fields', f:direction %>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-    <%= link_to_add_association 'Add ingredient', f, :ingredients, class: 'btn btn-primary', data:{association_insertion_node: '#ingredients', association_insertion_method: :append} %>
-    <%= link_to_add_association 'Add directions', f, :directions, class: 'btn btn-primary', data:{association_insertion_node: '#directions', association_insertion_method: :append} %>
+  <div class="row" style="padding:15px;">
+    <div class="actions col-12 title">
+      <%= f.submit "Add this recipe", class: "submit"%>
+      <%= link_to 'Back', recipes_path, class: "submit" %>
+    </div>
   </div>
 <% end %>

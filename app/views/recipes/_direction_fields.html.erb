@@ -1,7 +1,12 @@
 <div class="nested-fields">
-  <div class="fields">
-    <%= f.label :step %>
-    <%= f.text_area :step %>
+  <div class="row">
+    <div class="fields form-group col-10">
+      <%= f.label :step %>
+      <br/>
+      <%= f.text_area :step, class: "form-control"%>
+    </div>
+    <div class="col-2" style="padding-top:35px;">
+      <%= link_to_remove_association "X", f, class: "sm-submit" %>
+    </div>
   </div>
-  <%= link_to_remove_association "remove task", f %>
 </div>

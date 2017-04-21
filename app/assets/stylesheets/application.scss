@@ -1,2 +1,86 @@
 @import "bootstrap";
 @import "recipe";
+
+.html{
+  color: red;
+}
+
+.card {
+
+  border-radius: 4px;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.title{
+  text-align: center;
+  padding: 15px;
+}
+
+.case{
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  margin-bottom: 2px;
+  a {
+    color: #E53915;
+    font-size: 20px;
+  }
+}
+
+.card-text {
+  color: #87837F;
+  font-size: 14px;
+}
+
+.card-block{
+  padding: 0px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.navbar-brand{
+  img {
+    width: 210px;
+    height: 48px;
+  }
+}
+
+.navbar{
+  border-bottom: 3px solid red;
+}
+
+
+.submit{
+  padding: 0px;
+  border: 2px solid #FF5C00;
+  border-radius: 5px;
+  background-color: transparent;
+  line-height: 22px;
+  padding: 10px;
+  color: #FF5C00;
+  font-size: 20px;
+}
+
+.sm-submit{
+  padding: 0px;
+  border: 1px solid #FF5C00;
+  border-radius: 5px;
+  background-color: transparent;
+  line-height: 15px;
+  padding: 10px;
+  color: #FF5C00;
+  font-size: 14px;
+}
+
+.submit:hover{
+  background-color: #FF5C00;
+  color: white;
+}
+
+.sm-submit:hover{
+  background-color: #FF5C00;
+  color: white;
+}
