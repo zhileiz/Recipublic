@@ -20,5 +20,20 @@
   <%= @recipe.user_id %>
 </p>
 
+<p>
+  <strong>ingredients:</strong>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>directions:</strong>
+  <% @recipe.directions.each do |direction| %>
+    <%= direction.step %>
+  <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

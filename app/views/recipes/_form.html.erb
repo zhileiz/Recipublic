@@ -26,7 +26,21 @@
     <%= f.file_field :image %>
   </div>
 
+  <div id="ingredients">
+    <%= f.fields_for :ingredients do |ingredient| %>
+      <%= render 'ingredient_fields', f:ingredient %>
+    <% end %>
+  </div>
+
+  <div id="directions">
+    <%= f.fields_for :directions do |direction| %>
+      <%= render 'direction_fields', f:direction %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
+    <%= link_to_add_association 'Add ingredient', f, :ingredients, class: 'btn btn-primary', data:{association_insertion_node: '#ingredients', association_insertion_method: :append} %>
+    <%= link_to_add_association 'Add directions', f, :directions, class: 'btn btn-primary', data:{association_insertion_node: '#directions', association_insertion_method: :append} %>
   </div>
 <% end %>
