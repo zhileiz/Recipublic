@@ -2,8 +2,10 @@
 <% provide(:mine_active, "active") %>
 <p id="notice"><%= notice %></p>
 
-<div class="card-columns">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-  <% end %>
+<div class="row">
+  <%= render partial:"user_recipe", object: @recipes %>
+</div>
+
+<div class="row justify-content-md-center">
+  <%= paginate @recipes %>
 </div>

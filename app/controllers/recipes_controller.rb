@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
   #GET /recipes/mine
   def mine
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.all.order("created_at DESC").page(params[:page])
   end
 
   # GET /recipes/1
