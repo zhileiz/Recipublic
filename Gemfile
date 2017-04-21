@@ -36,6 +36,7 @@ gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

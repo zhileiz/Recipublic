@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  paginates_per 5
   acts_as_votable
   belongs_to :user
   has_many :directions, inverse_of: :recipe
