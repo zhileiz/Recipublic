@@ -1,41 +1,59 @@
+<% provide(:page_title, @recipe.title) %>
+<% if @recipe.user == current_user %>
+  <% provide(:mine_active, "active") %>
+<% else %>
+  <% provide(:browse_active, "active") %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <p>
+      <img src="<%= @recipe.image %>" style="max-width:400px;"/>
+    </p>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-4 col-xs-12">
+    <p>
+      <h2><%= @recipe.title %></h2>
+    </p>
+    <p>
+      <strong>Created by:</strong>
+      <%= @recipe.user.email %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <br/>
+      <%= @recipe.description %>
+    </p>
+    <% if @recipe.user == current_user %>
+    <%= link_to 'Delete', recipe_path, method: :delete, data: {confirm: "Are you sure?"} %> |
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+    <% end %>
+    <%= link_to 'Back', recipes_path %>
+  </div>
+</div>
 
-<p>
-  <strong>Image:</strong>
-  <img src="<%= @recipe.image %>" style="max-width:400px;"/>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @recipe.user_id %>
-</p>
-
-<p>
-  <strong>ingredients:</strong>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <%= ingredient.name %>
-  <% end %>
-</p>
-
-<p>
-  <strong>directions:</strong>
-  <% @recipe.directions.each do |direction| %>
-    <%= direction.step %>
-  <% end %>
-</p>
-
-<% if @recipe.user == current_user %>
-<%= link_to 'Delete', recipe_path, method: :delete, data: {confirm: "Are you sure?"} %> |
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<% end %>
-<%= link_to 'Back', recipes_path %>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
+    <p>
+      <strong>ingredients:</strong>
+      <% @recipe.ingredients.each do |ingredient| %>
+      <div>
+        <%= ingredient.name %> : <%= ingredient.amount %>
+      </div>
+      <% end %>
+    </p>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
+    <p>
+      <strong>directions:</strong>
+      <% (1..@recipe.directions.count).each do |i| %>
+        <div>
+          <strong><%= i %>: </strong>
+          <%= @recipe.directions[i-1].step %>
+        </div>
+      <% end %>
+    </p>
+  </div>
+</div>

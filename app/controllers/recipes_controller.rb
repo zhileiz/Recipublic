@@ -7,6 +7,11 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all.order("created_at DESC")
   end
 
+  #GET /recipes/mine
+  def mine
+    @recipes = current_user.recipes
+  end
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show
