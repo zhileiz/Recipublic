@@ -32,6 +32,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 gem 'paperclip', '~> 5.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.9'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
