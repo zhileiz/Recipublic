@@ -5,5 +5,12 @@
     <p class="card-text">
       <%= truncate(recipe.description, length:130) %>
     </p>
+    <div>
+      <%= link_to like_recipe_path(recipe), method: :put, class:"sm-submit" do %>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        like
+        <%= recipe.get_upvotes.size %>
+      <% end %>
+    </div>
   </div>
 </div>
