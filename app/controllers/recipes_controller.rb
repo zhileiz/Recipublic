@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all.order("created_at DESC").page(params[:page])
+    @recipes = Recipe.where(:original => true).order("created_at DESC").page(params[:page])
   end
 
   #GET /recipes/mine
@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
     new_recipe = origin_recipe.deep_clone include: [:tags, :directions, :ingredients]
     new_recipe.user = current_user
     new_recipe.image = origin_recipe.image
+    new_recipe.original = false
     respond_to do |format|
       if new_recipe.save
         format.html { redirect_to new_recipe, notice: 'Recipe was successfully created.' }

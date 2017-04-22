@@ -58,6 +58,10 @@
     border-bottom: none;
 }
 
+.nav-item {
+  font-size: 20px;
+  padding-left: 12px;
+}
 
 .submit{
   padding: 0px;
@@ -84,6 +88,16 @@
 .submit:hover{
   background-color: #FF5C00;
   color: white;
+}
+
+#tag {
+  background-color: rgba(255,92,0,0.2);
+  color: #FF5C00;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .sm-submit:hover{
