@@ -2,18 +2,8 @@
 <div class="col-sm-6 col-lg-3">
     <div class="card user-card">
       <img class="card-topper" src="<%= recipe.image %>" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title"><%= link_to recipe.title, recipe %></h4>
-        <p class="card-text">
-          <%= truncate(recipe.description, length:60) %>
-        </p>
-        <div>
-          <%= link_to like_recipe_path(recipe), method: :put, class:"sm-submit" do %>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-            like
-            <%= recipe.get_upvotes.size %>
-          <% end %>
-        </div>
+      <div class="card-block" style="text-align:center;">
+        <h4 class="card-title"><%= link_to truncate(recipe.title, length:32), recipe %></h4>
       </div>
     </div>
   </div>

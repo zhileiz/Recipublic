@@ -1,8 +1,5 @@
 <% provide(:page_title, "Browse") %>
 <% provide(:browse_active, "active") %>
-
-<p id="notice"><%= notice %></p>
-
 <div class="card-columns">
   <% @recipes.each do |recipe| %>
     <%= render recipe %>

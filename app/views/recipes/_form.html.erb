@@ -33,7 +33,7 @@
         <div class="field">
           <div class="row">
             <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |k| %>
-              <div id="tag" class="col-5"><%= k.check_box + k.text %></div>
+              <span id="tag"><%= k.check_box + k.text %></span>
             <% end %>
           </div>
         </div>
