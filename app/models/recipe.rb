@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :directions, inverse_of: :recipe
   has_many :ingredients, inverse_of: :recipe
+  has_many :categorizations
+  has_many :tags, through: :categorizations
   validates :title, presence: true
   validates :description, presence: true
   validates :image, presence: true

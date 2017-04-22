@@ -26,6 +26,13 @@
       <br/>
       <%= @recipe.description %>
     </p>
+    <p>
+      <strong>Tags:</strong>
+      <br/>
+      <% @recipe.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </p>
     <% if @recipe.user == current_user %>
     <%= link_to 'Delete', recipe_path, method: :delete, data: {confirm: "Are you sure?"} %> |
     <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
