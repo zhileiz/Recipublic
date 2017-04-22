@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
   end
   get "/mine" => "recipes#mine"
+  get "/recipes/:id/fork" => "recipes#fork", :as => 'fork'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

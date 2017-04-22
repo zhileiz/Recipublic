@@ -42,6 +42,22 @@ class RecipesController < ApplicationController
     end
   end
 
+  def fork
+    origin_recipe = Recipe.find(params[:id])
+    new_recipe = origin_recipe.deep_clone include: [:tags, :directions, :ingredients]
+    new_recipe.user = current_user
+    new_recipe.image = origin_recipe.image
+    respond_to do |format|
+      if new_recipe.save
+        format.html { redirect_to new_recipe, notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: new_recipe }
+      else
+        format.html { redirect_to :back }
+        format.json { render json: new_recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update

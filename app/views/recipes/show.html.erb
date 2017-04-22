@@ -37,7 +37,8 @@
     <%= link_to 'Delete', recipe_path, method: :delete, data: {confirm: "Are you sure?"} %> |
     <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
     <% end %>
-    <%= link_to 'Back', recipes_path %>
+    <%= link_to 'Back', recipes_path %> |
+    <%= link_to 'Fork', fork_path %>
   </div>
 </div>
 
