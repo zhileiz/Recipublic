@@ -1,9 +1,16 @@
 <% provide(:page_title, "Repository") %>
 <% provide(:mine_active, "active") %>
-<div class="row">
-  <%= render partial:"user_recipe", object: @recipes %>
+
+<div class="row title" style="padding:20px;">
+  <div class="col-12">
+    <h1>My Recipes</h1>
+  </div>
 </div>
 
-<div class="row justify-content-md-center">
-  <%= paginate @recipes %>
-</div>
+  <div class="row">
+    <%= render partial:"user_recipe", object: @recipes %>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <%= paginate @recipes %>
+  </div>
