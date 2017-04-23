@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require tether
 //= require bootstrap-sprockets
-//= require bootstrap
 //= require cocoon
 //= require turbolinks
 //= require_tree .
+
+$('.dropdown-toggle').dropdown()
