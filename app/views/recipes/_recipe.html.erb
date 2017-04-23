@@ -7,7 +7,11 @@
     </p>
     <div style="margin-top:-8px; margin-left:-6px; line-height:33px;">
       <% (1..recipe.tags.size).each do |i|%>
-      <span id="tag"><%= recipe.tags[i-1].name %></span>
+        <%= link_to recipe.tags[i-1] do %>
+          <span id="tag">
+            <%= recipe.tags[i-1].name %>
+          </span>
+        <% end %>
       <% end %>
       <%= link_to like_recipe_path(recipe), method: :put, class:"sm-like" do %>
         <strong>

@@ -1,5 +1,13 @@
 <% provide(:page_title, "Browse") %>
 <% provide(:browse_active, "active") %>
+<% @tags = Tag.all %>
+<div class="row justify-content-center" style="margin:15px; line-height:32px;">
+  <% @tags.each do |tag| %>
+    <% unless tag.recipes.empty? %>
+      <%= render tag %>
+    <% end %>
+  <% end %>
+</div>
 <div class="card-columns">
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
