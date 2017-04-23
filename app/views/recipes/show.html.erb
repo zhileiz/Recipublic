@@ -17,8 +17,23 @@
     </p>
     <% if @recipe.user != current_user %>
     <p>
-      <strong>Created by:</strong>
-      <%= @recipe.user.email %>
+      <% user = @recipe.user %>
+      <div class="row">
+        <div class="col-1">
+          <div class="round-image-50">
+            <%= link_to usershow_path(user) do %>
+            <%= image_tag(user.avatar.url) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-4">
+          <div style="font-size:18px;padding-top:10px;">
+            <%= link_to usershow_path(user) do %>
+            Created by <i><%= user.name %></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </p>
     <% end %>
     <p>
