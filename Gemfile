@@ -29,7 +29,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
-gem 'paperclip', '~> 5.1'
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
