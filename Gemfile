@@ -38,6 +38,7 @@ gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'ma
 gem 'deep_cloneable', '~> 2.2.2'
 gem 'seed_dump', '~> 3.2', '>= 3.2.4'
 gem 'pg'
+gem 'aws-sdk', '~> 2.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
