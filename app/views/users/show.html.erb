@@ -1,5 +1,28 @@
 <% provide(:page_title, "Browse") %>
 <% provide(:browse_active, "active") %>
-<div class="row justify-content-center" style="margin:15px; line-height:32px;">
-<h1><%= @user.name %></h1>
+<div class="row" style="margin-top:40px;">
+  <div class="col-3">
+    <div style="background-color:rgba(255,92,0,0.1); padding:20px; border-radius:10px;">
+      <div style="text-align:center;">
+        <img src="<%= @user.avatar %>" style="width:100%; border-radius:4%;">
+      </div>
+      <div style="margin-top:15px;">
+        <span style="font-size:30px;"><%= @user.name %></span>
+      </div>
+      <div style="margin-bottom:20px;">
+        <span style="font-size:15px;"> Profile </span></br>
+        <span style="font-size:15px;"><i><%= @user.detail %></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-9" style="background-color:rgba(0,92,0,0.1); padding:20px; border-radius:10px;">
+    <div style="margin-bottom:20px;">
+      <span style="font-size:20px;"><%= @recipes.size %> Recipes</span>
+    </div>
+    <div class="card-columns-2">
+      <% @recipes.each do |recipe| %>
+        <%= render recipe %>
+      <% end %>
+    </div>
+  </div>
 </div>
