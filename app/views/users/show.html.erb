@@ -23,14 +23,20 @@
       </div>
     </div>
   </div>
-  <div class="col-9" style="background-color:rgba(0,92,0,0.1); padding:20px; border-radius:10px;">
-    <div style="margin-bottom:20px;">
-      <span style="font-size:20px;"><%= @recipes.size %> Recipes</span>
-    </div>
-    <div class="card-columns-2">
-      <% @recipes.each do |recipe| %>
-        <%= render recipe %>
-      <% end %>
-    </div>
+  <div class="col-9" >
+    <% if @recipes.size > 0 %>
+      <div style="margin-bottom:20px;">
+        <span style="font-size:20px;"><%= @recipes.size %> Recipes</span>
+      </div>
+      <div class="card-columns-2">
+        <% @recipes.each do |recipe| %>
+          <%= render recipe %>
+        <% end %>
+      </div>
+    <% else %>
+      <div style="margin-bottom:20px;">
+        <span style="font-size:20px;"><%= @user.name%> has not created recipes yet.</span>
+      </div>
+    <% end %>
   </div>
 </div>
