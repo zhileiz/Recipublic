@@ -1,0 +1,14 @@
+<% provide(:page_title, "My Feed") %>
+<% provide(:feed_active, "active") %>
+
+<div class="row title" style="padding:20px;">
+  <div class="col-12">
+    <h1> My Feed </h1>
+  </div>
+</div>
+
+<div class="card-columns">
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+</div>

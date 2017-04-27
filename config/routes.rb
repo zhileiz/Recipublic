@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get "/mine" => "recipes#mine"
   get "/recipes/:id/fork" => "recipes#fork", :as => 'fork'
   get 'users/:id' => 'users#show', :as => 'usershow'
+  get "/feed" => "recipes#feed"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

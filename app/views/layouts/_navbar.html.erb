@@ -13,6 +13,9 @@
             <%= link_to 'Browse', root_path, class: "nav-link #{yield(:browse_active)}" %>
           </li>
           <li class="nav-item">
+            <%= link_to 'Feed', feed_path, class: "nav-link #{yield(:feed_active)}" %>
+          </li>
+          <li class="nav-item">
             <%= link_to 'Tags', tags_path, class: "nav-link #{yield(:tag_active)}" %>
           </li>
           <li class="nav-item">

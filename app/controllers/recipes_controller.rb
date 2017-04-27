@@ -12,6 +12,16 @@ class RecipesController < ApplicationController
     @recipes = current_user.recipes.all.order("created_at DESC").page(params[:page])
   end
 
+  def feed
+    @temp = Recipe.where(:original => true).order("created_at DESC")
+    @recipes = []
+    @temp.each do |temp|
+      if (current_user.following?(temp.user))
+        @recipes.push(temp)
+      end
+    end
+  end
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show
