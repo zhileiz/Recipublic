@@ -10,12 +10,16 @@
         <span style="font-size:30px;"><%= @user.name %></span>
       </div>
       <div style="margin-bottom:20px;">
-        <span style="font-size:15px;"> Profile </span></br>
         <span style="font-size:15px;"><i><%= @user.detail %></i></span>
       </div>
-      <div>
-        <h6> <%= @user.followers.count %></h6></br>
-        <%= render partial:"follow_button" %>
+      <div class="row">
+        <div class="col-6">
+          <h6> Followers: <%= @user.followers.count %> </h6>
+          <h6> Following: <%= @user.following.count %> </h6>
+        </div>
+        <div class="col-6">
+          <%= render partial:"follow_button" %>
+        </div>
       </div>
     </div>
   </div>
