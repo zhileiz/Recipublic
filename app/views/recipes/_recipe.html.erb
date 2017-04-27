@@ -1,7 +1,33 @@
 <div class="card" style="display:inline-block;">
   <img class="card-img-top img-fluid" src="<%= recipe.image %>" alt="Card image cap">
   <div class="card-block">
-    <h4 class="card-title"><%= link_to truncate(recipe.title, length:32), recipe %></h4>
+    <h4 class="card-title" style="padding-bottom:0px;"><%= link_to truncate(recipe.title, length:32), recipe %></h4>
+    <div class="row bottomrow">
+      <div class="col-8" style="padding-left:0px; margin-left:0px; padding-right:20px;">
+        <div class="row">
+          <div class="col-4 nopadding" style="padding-left:0px;">
+            <div class="round-image-40">
+              <%= image_tag(recipe.user.avatar.url) %>
+            </div>
+          </div>
+          <div class="col-8" style="padding-right:0px; padding-left:3px;">
+            <div style="font-size:14px;padding-top:5px;">
+              Created by <i><%= recipe.user.name %></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 text-right" style="padding-left:0px;">
+        <div style="padding-top:15px; padding-right:10px;">
+          <%= link_to like_recipe_path(recipe), method: :put, class:"sm-like" do %>
+          <strong>
+            <%= recipe.get_upvotes.size %>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </strong>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <p class="card-text">
       <%= truncate(recipe.description, length:100) %>
     </p>
@@ -13,32 +39,6 @@
           </span>
         <% end %>
       <% end %>
-    </div>
-    <div class="row" style="margin-top:10px; padding-top:5px; border-top:1px solid grey; padding-bottom:-2px; margin-bottom:-7px;">
-      <div class="col-8">
-        <div class="row">
-          <div class="col-4">
-            <div class="round-image-50">
-              <%= image_tag(recipe.user.avatar.url) %>
-            </div>
-          </div>
-          <div class="col-8">
-            <div style="font-size:14px;padding-top:5px;">
-              Created by <i><%= recipe.user.name %></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-4 text-right">
-        <div style="padding-top:15px; padding-right:10px;">
-          <%= link_to like_recipe_path(recipe), method: :put, class:"sm-like" do %>
-          <strong>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-            <%= recipe.get_upvotes.size %>
-          </strong>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
