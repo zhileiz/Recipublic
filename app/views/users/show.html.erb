@@ -13,6 +13,10 @@
         <span style="font-size:15px;"> Profile </span></br>
         <span style="font-size:15px;"><i><%= @user.detail %></i></span>
       </div>
+      <div>
+        <h6> <%= @user.followers.count %></h6></br>
+        <%= render partial:"follow_button" %>
+      </div>
     </div>
   </div>
   <div class="col-9" style="background-color:rgba(0,92,0,0.1); padding:20px; border-radius:10px;">

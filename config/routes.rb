@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
   resources :tags
   devise_for :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   root "recipes#index"
   resources :recipes do
     member do
       put "like", to: "recipes#upvoate"
+    end
+  end
+  resources :relationships do
+    member do
+      put "follow", to: "relationships#create"
+      delete "unfollow", to: "relationships#destroy"
     end
   end
   get "/mine" => "recipes#mine"
